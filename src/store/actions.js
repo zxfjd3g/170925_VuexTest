@@ -5,16 +5,16 @@ export default {
   // 添加todo
   addTodo ({commit}, todo) {
     // 提交mutation
-    commit(ADD_TODO, todo)
+    commit(ADD_TODO, {todo})
   },
   // 删除todo
   deleteTodo ({commit}, index) {
     // 提交mutation
-    commit(DELETE_TODO, index)
+    commit(DELETE_TODO, {index})
   },
   // 全选或全不选
   selectAll ({commit}, check) {
-    commit(SELECT_ALL, check)
+    commit(SELECT_ALL, {check})
   },
   // 删除全部选中的
   deleteCompleted({commit}) {
@@ -28,7 +28,7 @@ export default {
       // 读取数据
       const todos = storageUtil.readTodos()
       // 提交mutation
-      commit(RECEIVE_TODOS, todos)
+      commit(RECEIVE_TODOS, {todos})
     }, 1000)
   }
 }
