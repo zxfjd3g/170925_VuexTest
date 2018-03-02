@@ -17,18 +17,18 @@
 	谁来触发: action中的commit('mutation名称')
 	只能包含同步的代码, 不能写异步代码
 	const mutations = {
-		yyy (state, data) { 
+		yyy (state, {data1}) { 
 			// 更新state的某个属性
 		}
 	}
 ## 3). actions
 	包含多个事件回调函数的对象
 	通过执行: commit()来触发mutation的调用, 间接更新state
-	谁来触发: 组件中: $store.dispatch('action名称')  // 'zzz'
+	谁来触发: 组件中: $store.dispatch('action名称', data1)
 	可以包含异步代码(定时器, ajax)
 	const actions = {
 		zzz ({commit, state}, data1) {
-			commit('yyy', data2)
+			commit('yyy', {data1})
 		}
 	}
 ## 4). getters
@@ -39,15 +39,6 @@
 			return ...
 		}
 	}
-
-
-## 6). 向外暴露store对象
-	export default new Vuex.Store({
-		state,
-		mutations,
-		actions,
-		getters
-	})
 
 # 4. 相关API
 ## 1). Vuex对象
