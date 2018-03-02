@@ -1,4 +1,4 @@
-import {ADD_TODO, DELETE_TODO, SELECT_ALL, DELETE_COMPLETED, RECEIVE_TODOS} from './mutation-types'
+import {ADD_TODO, DELETE_TODO, SELECT_ALL, DELETE_COMPLETED, RECEIVE_TODOS, CHECK_TODO} from './mutation-types'
 
 export default {
   [ADD_TODO] (state, {todo}) {
@@ -19,5 +19,9 @@ export default {
 
   [RECEIVE_TODOS] (state, {todos}) {
     state.todos = todos
+  },
+
+  [CHECK_TODO] (state, {todo, check}) {
+    todo.completed = check
   }
 }

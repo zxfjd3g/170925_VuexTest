@@ -1,4 +1,4 @@
-import {ADD_TODO, DELETE_TODO, SELECT_ALL, DELETE_COMPLETED, RECEIVE_TODOS} from './mutation-types'
+import {ADD_TODO, DELETE_TODO, SELECT_ALL, DELETE_COMPLETED, RECEIVE_TODOS, CHECK_TODO} from './mutation-types'
 import storageUtil from '../utils/stotageUtil'
 
 export default {
@@ -30,5 +30,10 @@ export default {
       // 提交mutation
       commit(RECEIVE_TODOS, {todos})
     }, 1000)
+  },
+
+  // 勾选或不勾选某个todo
+  checkTodo ({commit}, {todo, check}) {
+    commit(CHECK_TODO, {todo, check})
   }
 }
